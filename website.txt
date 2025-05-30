@@ -1,0 +1,230 @@
+Skip to content
+You said:
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to TPCODL</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to TPCODL</h1>
+<p>This the first project made using devops.</p>
+
+<p><em>Thank you for visting this page.</em></p>
+</body>
+</html>
+based in this create a css and a js file 
+ChatGPT said:
+Here's how you can separate the CSS and JavaScript from your HTML file to follow best practices for modular web development.
+
+✅ Updated index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to TPCODL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Welcome to TPCODL</h1>
+  <p>This is the first project made using DevOps.</p>
+  <p><em>Thank you for visiting this page.</em></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
+🎨 style.css
+html {
+  color-scheme: light dark;
+}
+
+body {
+  width: 35em;
+  margin: 0 auto;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+🧠 script.js
+// Simple script to show a greeting in the console
+console.log("Welcome to TPCODL - DevOps Project Loaded");
+
+// Optional: show alert on page load
+window.onload = () => {
+  alert("Welcome to TPCODL!");
+};
+✅ Folder Structure
+/project-folder
+│
+├── index.html
+├── style.css
+└── script.js
+Let me know if you'd like to add more interactivity or styles!
+
+You said:
+based on tpcodl website create a webpage 
+ChatGPT said:
+
+https://pbs.twimg.com/media/GNng2TuaoAAsOkp.jpg
+
+https://imagecdn.99acres.com//microsite/wp-content/blogs.dir/6161/files/2023/09/odisha.jpg
+
+https://pbs.twimg.com/media/GTzKSqSXUAAsDsV?format=jpg&name=medium
+
+https://pbs.twimg.com/media/GkPUE3SawAAmubF.jpg
+To create a webpage inspired by the TP Central Odisha Distribution Limited (TPCODL) website, we can design a simple, professional layout that reflects their branding and services. Below is an example of how you might structure the HTML, CSS, and JavaScript files to emulate the TPCODL website's style and functionality.
+
+HTML: index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPCODL - Powering Odisha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="tpcodl-logo.png" alt="TPCODL Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h1>Welcome to TPCODL</h1>
+    <p>Powering Odisha with sustainable energy solutions.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Bill Payment</li>
+      <li>New Connection</li>
+      <li>Power Outage Updates</li>
+      <li>Customer Support</li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>TP Central Odisha Distribution Limited (TPCODL) is a joint venture between Tata Power and the Government of Odisha, serving over 30 lakh customers across a vast distribution area.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: customercare@tpcentralodisha.com</p>
+    <p>Phone: 1912 / 1800 345 7122</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TPCODL. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+CSS: style.css
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #003366;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+header .logo img {
+  width: 150px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 10px;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: #003366;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #003366;
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+JavaScript: script.js
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("TPCODL Website Loaded");
+
+  // Example of a simple interaction
+  const homeSection = document.getElementById('home');
+  homeSection.addEventListener('click', () => {
+    alert("Welcome to TPCODL's homepage!");
+  });
+});
+Folder Structure
+/tpcodl-website
+│
+├── index.html
+├── style.css
+├── script.js
+└── tpcodl-logo.png  (Placeholder for the TPCODL logo image)
+This setup provides a basic structure that you can expand upon. You can add more sections, enhance the design with images and icons, and implement additional functionality as needed. If you have specific features or design elements from the TPCODL website that you'd like to replicate, feel free to let me know, and I can assist you further.
+
+
+
+
+Attach
+
+Search
+
+Reason
+
+Voice
+No file chosenNo file chosen
+ChatGPT can make mistakes. Check important info. See Cookie Preferences.
+
