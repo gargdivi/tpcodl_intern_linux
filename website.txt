@@ -228,3 +228,103 @@ Voice
 No file chosenNo file chosen
 ChatGPT can make mistakes. Check important info. See Cookie Preferences.
 
+using pipeline howto use publish over ssh
+
+ChatGPT said:
+To publish files over SSH using Jenkins Pipeline, you'll use the "Publish over SSH" plugin along with a pipeline script. Here's a step-by-step guide:
+
+✅ Step 1: Install "Publish Over SSH" Plugin
+Go to Jenkins Dashboard → Manage Jenkins → Plugins
+
+Under Available, search for Publish Over SSH and install it.
+
+Restart Jenkins if required.
+
+✅ Step 2: Configure SSH Server in Jenkins
+Go to Manage Jenkins → Configure System
+
+Find Publish over SSH section
+
+Click Add under SSH Servers:
+
+Name: my-remote-server (used in pipeline)
+
+Hostname: e.g., 192.168.122.46
+
+Username: your SSH user
+
+Remote Directory: e.g., /usr/share/nginx/html
+
+Check Use password authentication, or better: Use key-based authentication
+
+Click Test Configuration to verify
+
+✅ Step 3: Use it in a Jenkins Pipeline
+You must use a Publish Over SSH plugin wrapper using the sshPublisher step.
+
+🔧 Example Jenkinsfile (Declarative Pipeline)
+groovy
+Copy
+Edit
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // build steps here
+            }
+        }
+
+        stage('Deploy via SSH') {
+            steps {
+                sshPublisher(
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: 'my-remote-server', // Matches the name you set
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: '**/*.html, **/*.css, **/*.js',
+                                    removePrefix: 'build/', // if your files are under build/
+                                    remoteDirectory: '',    // relative to the remote dir configured
+                                    execCommand: '',        // optional remote commands
+                                    execTimeout: 120000     // optional: 2 min timeout
+                                )
+                            ],
+                            usePromotionTimestamp: false,
+                            verbose: true
+                        )
+                    ]
+                )
+            }
+        }
+    }
+}
+📁 Directory structure example:
+If your workspace looks like this:
+
+pgsql
+Copy
+Edit
+build/
+  index.html
+  style.css
+  script.js
+Then:
+
+sourceFiles: '**/*.html, **/*.css, **/*.js'
+
+removePrefix: 'build/'
+
+Files will be uploaded to /usr/share/nginx/html/ on the remote host.
+
+🧪 To test:
+Make sure Jenkins can SSH into the server (use key-based auth ideally)
+
+Trigger a pipeline run
+
+Check the logs and remote directory
+
+Would you like me to generate a Jenkinsfile based on your actual paths and files (e.g., from sonar-website)?
+
